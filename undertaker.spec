@@ -1,12 +1,13 @@
 %define name    undertaker
 %define version 1.0
-%define release %mkrel 0
+%define release %mkrel 1
 
 Name:           %{name}
 Summary:	Software configuration variability verifier
 Version:        %{version}
 Release:        %{release}
 Source0:	http://vamos.informatik.uni-erlangen.de/files/%{name}-%{version}.tar.gz
+Patch0:		0001-Fixing-Makefile-to-use-LIBDIR.patch
 URL:            http://vamos.informatik.uni-erlangen.de/trac/undertaker
 Group:          Development/Other
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -37,6 +38,7 @@ Emacs mode for the Undertaker analyzing tool.
 
 %prep
 %setup -n vamos
+%patch0 -p1
 
 %build
 #configure
@@ -44,8 +46,7 @@ Emacs mode for the Undertaker analyzing tool.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std PREFIX=%{_prefix}
-%__mv %{buildroot}/%{_prefix}/lib %{buildroot}%{_libdir}
+%makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
