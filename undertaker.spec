@@ -1,6 +1,6 @@
 %define name    undertaker
 %define version 1.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:           %{name}
 Summary:	Software configuration variability verifier
@@ -39,6 +39,8 @@ Emacs mode for the Undertaker analyzing tool.
 %prep
 %setup -n vamos
 %patch0 -p1
+# Change paths from lib to lib64 for amd64 packages
+sed -ri 's/\/lib/\/%{_lib}/g' undertaker/undertaker-kconfigdump
 
 %build
 #configure
