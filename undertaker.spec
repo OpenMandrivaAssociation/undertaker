@@ -37,14 +37,14 @@ Summary:	Emacs mode for undertaker, a variability verifier
 Emacs mode for the Undertaker analyzing tool.
 
 %prep
-%setup -n vamos
+%setup -qn vamos
 %patch0 -p1
 # Change paths from lib to lib64 for amd64 packages
 sed -ri 's/\/lib/\/%{_lib}/g' undertaker/undertaker-kconfigdump
 
 %build
 #configure
-%make
+%make CXX="g++ %optflags -DBOOST_FILESYSTEM_VERSION=2"
 
 %install
 rm -rf $RPM_BUILD_ROOT
