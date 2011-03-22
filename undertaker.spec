@@ -1,6 +1,6 @@
 %define name    undertaker
 %define version 1.1
-%define release %mkrel 0
+%define release %mkrel 1
 
 Name:           %{name}
 Summary:	Software configuration variability verifier
