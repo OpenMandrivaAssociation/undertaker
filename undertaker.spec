@@ -1,6 +1,6 @@
 %define name    undertaker
-%define version 1.1
-%define release %mkrel 1
+%define version 1.2
+%define release 2
 
 Name:           %{name}
 Summary:	Software configuration variability verifier
@@ -36,7 +36,7 @@ Summary:	Emacs mode for undertaker, a variability verifier
 Emacs mode for the Undertaker analyzing tool.
 
 %prep
-%setup -q
+%setup -q -n vamos-%{version}
 
 %build
 #configure
@@ -54,9 +54,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%{name}
 %{_bindir}/%{name}-kconfigdump
 %{_bindir}/%{name}-linux-tree
-%{_libdir}/%{name}/dumpconf
+%{_bindir}/%{name}-calc-coverage
+%{_bindir}/rsf2model
+%{_bindir}/zizler
 %{_libdir}/%{name}/rsf2model
+%{_libdir}/%{name}/dumpconf
 %{_libdir}/%{name}/%{name}-scan-head
+%{python_sitelib}/%{name}/
+%{python_sitelib}/%{name}*.egg-info
+%{_mandir}/man1/%{name}*
 
 %files -n	%{name}-emacs
 %defattr(-,root,root,-)
