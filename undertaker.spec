@@ -1,6 +1,6 @@
 %define name    undertaker
 %define version 1.2
-%define release 2
+%define release 3
 
 Name:           %{name}
 Summary:	Software configuration variability verifier
