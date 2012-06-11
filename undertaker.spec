@@ -1,16 +1,12 @@
-%define name    undertaker
-%define version 1.2
-%define release 3
-
-Name:           %{name}
 Summary:	Software configuration variability verifier
-Version:        %{version}
-Release:        %{release}
-Source0:	http://vamos.informatik.uni-erlangen.de/files/%{name}-%{version}.tar.gz
-URL:            http://vamos.informatik.uni-erlangen.de/trac/undertaker
-Group:          Development/Other
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Name:           undertaker
+Version:        1.3
+Release:        1
 License:	GPLv3
+Group:          Development/Other
+URL:            http://vamos.informatik.uni-erlangen.de/trac/undertaker
+Source0:	http://vamos.informatik.uni-erlangen.de/files/%{name}-%{version}.tar.gz
+
 BuildRequires:	check-devel
 BuildRequires:	boost-devel
 BuildRequires:	picosat-devel
@@ -43,14 +39,9 @@ Emacs mode for the Undertaker analyzing tool.
 %make CXX="g++ %optflags -DBOOST_FILESYSTEM_VERSION=2"
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
-%defattr(-,root,root,-)
 %{_bindir}/%{name}
 %{_bindir}/%{name}-kconfigdump
 %{_bindir}/%{name}-linux-tree
@@ -65,5 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/%{name}*
 
 %files -n	%{name}-emacs
-%defattr(-,root,root,-)
 %{_datadir}/emacs/site-lisp/%{name}/%{name}.el
+
