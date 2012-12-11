@@ -1,12 +1,11 @@
+Name:		undertaker
 Summary:	Software configuration variability verifier
-Name:           undertaker
-Version:        1.3
-Release:        1
-License:	GPLv3
-Group:          Development/Other
-URL:            http://vamos.informatik.uni-erlangen.de/trac/undertaker
+Version:	1.2
+Release:	5
 Source0:	http://vamos.informatik.uni-erlangen.de/files/%{name}-%{version}.tar.gz
-
+URL:		http://vamos.informatik.uni-erlangen.de/trac/undertaker
+Group:		Development/Other
+License:	GPLv3
 BuildRequires:	check-devel
 BuildRequires:	boost-devel
 BuildRequires:	picosat-devel
@@ -36,7 +35,8 @@ Emacs mode for the Undertaker analyzing tool.
 
 %build
 #configure
-%make CXX="g++ %optflags -DBOOST_FILESYSTEM_VERSION=2"
+make clean
+make CXX="g++ %optflags"
 
 %install
 %makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
@@ -55,6 +55,6 @@ Emacs mode for the Undertaker analyzing tool.
 %{python_sitelib}/%{name}*.egg-info
 %{_mandir}/man1/%{name}*
 
-%files -n	%{name}-emacs
+%files -n %{name}-emacs
 %{_datadir}/emacs/site-lisp/%{name}/%{name}.el
 
