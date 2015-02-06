@@ -1,7 +1,7 @@
 Name:		undertaker
 Summary:	Software configuration variability verifier
 Version:	1.2
-Release:	5
+Release:	6
 Source0:	http://vamos.informatik.uni-erlangen.de/files/%{name}-%{version}.tar.gz
 URL:		http://vamos.informatik.uni-erlangen.de/trac/undertaker
 Group:		Development/Other
