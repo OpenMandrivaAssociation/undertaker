@@ -3,7 +3,7 @@ Summary:	Software configuration variability verifier
 Version:	1.2
 Release:	6
 Source0:	http://vamos.informatik.uni-erlangen.de/files/%{name}-%{version}.tar.gz
-URL:		http://vamos.informatik.uni-erlangen.de/trac/undertaker
+URL:		https://vamos.informatik.uni-erlangen.de/trac/undertaker
 Group:		Development/Other
 License:	GPLv3
 BuildRequires:	check-devel
